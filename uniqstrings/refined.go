@@ -20,41 +20,41 @@ func slice(m map[string]struct{}) []string {
 	return res
 }
 
-func unique(a, b []string) []string {
+func uniq(a, b []string) []string {
 	m := make(map[string]struct{})
 	insert(a, m)
 	insert(b, m)
 	return slice(m)
 }
 
-func uniqueNames(a, b names) names {
-	return unique(a, b)
+func uniqNames(a, b names) names {
+	return uniq(a, b)
 }
 
 func main() {
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		[]string(nil),
 		names{},
 	))
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		names{},
 		names{},
 	))
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		names{},
 		names{"Ava", "Emma", "Olivia"},
 	))
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		names{"Ava", "Emma", "Olivia"},
 		names{},
 	))
 
 	// should print Ava, Emma, Olivia, Sophia, any order
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		names{"Ava", "Emma", "Olivia"},
 		names{"Olivia", "Sophia", "Emma"},
 	))
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		names{"Ava", "Emma", "Olivia"},
 		names{"Sophia"},
 	))

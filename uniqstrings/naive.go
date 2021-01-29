@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-func uniqueNames(a, b []string) []string {
+func uniqNames(a, b []string) []string {
 	m := make(map[string]struct{})
 
 	for i := range a {
@@ -22,10 +22,10 @@ func uniqueNames(a, b []string) []string {
 
 func main() {
 	// should print Ava, Emma, Olivia, Sophia
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		[]string{"Ava", "Emma", "Olivia"},
 		[]string{"Olivia", "Sophia", "Emma"}))
-	fmt.Println(uniqueNames(
+	fmt.Println(uniqNames(
 		[]string{"Ava", "Emma", "Olivia"},
 		[]string{"Sophia"}))
 }
