@@ -32,28 +32,28 @@ func uniqueNames(a, b names) names {
 func main() {
 	fmt.Println(uniqueNames(
 		[]string(nil),
-		[]string{},
+		names{},
 	))
 	fmt.Println(uniqueNames(
-		[]string{},
-		[]string{},
+		names{},
+		names{},
 	))
 	fmt.Println(uniqueNames(
-		[]string{},
-		[]string{"Ava", "Emma", "Olivia"},
+		names{},
+		names{"Ava", "Emma", "Olivia"},
 	))
 	fmt.Println(uniqueNames(
-		[]string{"Ava", "Emma", "Olivia"},
-		[]string{},
+		names{"Ava", "Emma", "Olivia"},
+		names{},
 	))
 
 	// should print Ava, Emma, Olivia, Sophia, any order
 	fmt.Println(uniqueNames(
-		[]string{"Ava", "Emma", "Olivia"},
-		[]string{"Olivia", "Sophia", "Emma"},
+		names{"Ava", "Emma", "Olivia"},
+		names{"Olivia", "Sophia", "Emma"},
 	))
 	fmt.Println(uniqueNames(
-		[]string{"Ava", "Emma", "Olivia"},
-		[]string{"Sophia"},
+		names{"Ava", "Emma", "Olivia"},
+		names{"Sophia"},
 	))
 }
