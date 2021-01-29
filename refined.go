@@ -1,3 +1,5 @@
+// Refined, standalone
+
 package main
 
 import "fmt"
