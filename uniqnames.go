@@ -2,28 +2,58 @@ package main
 
 import "fmt"
 
-func uniqueNames(a, b []string) []string {
-	m := make(map[string]struct{})
+type names []string
 
-	for i := range a {
-		m[a[i]] = struct{}{}
+func insert(ss []string, m map[string]struct{}) {
+	for i := range ss {
+		m[ss[i]] = struct{}{}
 	}
-	for i := range b {
-		m[b[i]] = struct{}{}
-	}
-	var result []string
+}
+
+func slice(m map[string]struct{}) []string {
+	var res []string
 	for k := range m {
-		result = append(result, k)
+		res = append(res, k)
 	}
-	return result
+	return res
+}
+
+func unique(a, b []string) []string {
+	m := make(map[string]struct{})
+	insert(a, m)
+	insert(b, m)
+	return slice(m)
+}
+
+func uniqueNames(a, b names) names {
+	return unique(a, b)
 }
 
 func main() {
-	// should print Ava, Emma, Olivia, Sophia
+	fmt.Println(uniqueNames(
+		[]string(nil),
+		[]string{},
+	))
+	fmt.Println(uniqueNames(
+		[]string{},
+		[]string{},
+	))
+	fmt.Println(uniqueNames(
+		[]string{},
+		[]string{"Ava", "Emma", "Olivia"},
+	))
 	fmt.Println(uniqueNames(
 		[]string{"Ava", "Emma", "Olivia"},
-		[]string{"Olivia", "Sophia", "Emma"}))
+		[]string{},
+	))
+
+	// should print Ava, Emma, Olivia, Sophia, any order
 	fmt.Println(uniqueNames(
 		[]string{"Ava", "Emma", "Olivia"},
-		[]string{"Sophia"}))
+		[]string{"Olivia", "Sophia", "Emma"},
+	))
+	fmt.Println(uniqueNames(
+		[]string{"Ava", "Emma", "Olivia"},
+		[]string{"Sophia"},
+	))
 }
