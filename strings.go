@@ -1,21 +1,15 @@
 // Refined, packaged
 
-package names
+package strings
 
-type Names []string
-
-func Unique(a, b Names) Names {
-	return unique(a, b)
-}
-
-// private below
-
-func unique(a, b []string) []string {
+func Unique(a, b []string) []string {
 	m := make(map[string]struct{})
 	insert(a, m)
 	insert(b, m)
 	return slice(m)
 }
+
+// private below
 
 func insert(ss []string, m map[string]struct{}) {
 	for i := range ss {
