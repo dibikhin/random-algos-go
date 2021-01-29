@@ -4,39 +4,39 @@ package main
 
 import (
 	"fmt"
-	"names"
+	"strings"
 )
 
 func main() {
 	fmt.Println(
-		names.Unique(
+		strings.Unique(
 			[]string(nil),
 			Names{},
 		))
 	fmt.Println(
-		names.Unique(
+		strings.Unique(
 			Names{},
 			Names{},
 		))
 	fmt.Println(
-		names.Unique(
+		strings.Unique(
 			Names{},
 			Names{"Ava", "Emma", "Olivia"},
 		))
 	fmt.Println(
-		names.Unique(
+		strings.Unique(
 			Names{"Ava", "Emma", "Olivia"},
 			Names{},
 		))
 
 	// should print Ava, Emma, Olivia, Sophia, any order
 	fmt.Println(
-		names.Unique(
+		strings.Unique(
 			Names{"Ava", "Emma", "Olivia"},
 			Names{"Olivia", "Sophia", "Emma"},
 		))
 	fmt.Println(
-		names.Unique(
+		strings.Unique(
 			Names{"Ava", "Emma", "Olivia"},
 			Names{"Sophia"},
 		))
