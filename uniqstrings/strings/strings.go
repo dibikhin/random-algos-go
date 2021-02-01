@@ -4,25 +4,27 @@ package strings
 
 type void struct{}
 
+type strSet map[string]void
+
 // Uniq returns unique strings in any order
 func Uniq(a, b []string) []string {
-	m := make(map[string]void)
-	insert(a, m)
-	insert(b, m)
-	return slice(m)
+	set := make(strSet)
+	insert(a, set)
+	insert(b, set)
+	return slice(set)
 }
 
 // private below
 
-func insert(ss []string, m map[string]void) {
-	for i := range ss {
-		m[ss[i]] = void{}
+func insert(strs []string, set strSet) {
+	for i := range strs {
+		set[strs[i]] = void{}
 	}
 }
 
-func slice(m map[string]void) []string {
+func slice(set strSet) []string {
 	var res []string
-	for k := range m {
+	for k := range set {
 		res = append(res, k)
 	}
 	return res
