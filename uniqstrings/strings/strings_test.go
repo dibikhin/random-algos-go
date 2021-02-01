@@ -57,3 +57,11 @@ func TestStringsUniq(t *testing.T) {
 		})
 	}
 }
+
+// just for fun
+func BenchmarkStringsUniq(b *testing.B) {
+	tt := tests[len(tests)-1]
+	for i := 0; i < b.N; i++ {
+		Uniq(tt.a, tt.b)
+	}
+}
