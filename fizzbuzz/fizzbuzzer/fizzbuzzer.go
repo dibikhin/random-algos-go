@@ -1,4 +1,4 @@
-// Package fizzbuzzer is for learning using packages inside modules only.
+// Package fizzbuzzer is extracted for learning packages inside modules only.
 // Could have the project stucture plain as well.
 package fizzbuzzer
 
@@ -11,8 +11,9 @@ type FizzBuzz struct {
 	Text string
 }
 
-// FizzBuzzRange returns slice of FizzBuzz as of https://wiki.c2.com/?FizzBuzzTest
-// (suitable for ranging over).
+// FizzBuzzRange computes a continous range of FizzBuzz starting with 'from' upto 'to' (excl.).
+// FizzBuzz is https://wiki.c2.com/?FizzBuzzTest
+//
 //
 // For example:
 //
@@ -26,9 +27,9 @@ func FizzBuzzRange(from, to int) ([]FizzBuzz, error) {
 	}
 
 	// This optimizing is for fun only
-	res := good(from, to)
+	// res := good(from, to)
 	// res := wierd(to, from)
-	// res := better(to, from)
+	res := better(to, from)
 
 	return res, nil
 }

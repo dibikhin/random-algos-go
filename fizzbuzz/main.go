@@ -4,7 +4,7 @@ import fb "fizzbuzz/fizzbuzzer"
 
 func main() {
 	const from = 1
-	const to = 1000001
+	const to = 101
 
 	fbs, err := fb.FizzBuzzRange(from, to)
 	if err != nil {
