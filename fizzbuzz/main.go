@@ -1,12 +1,10 @@
 package main
 
-import fb "./fizzbuzzer" // better than the refined one
-
-// import fb "./fizzbuzzer_refined"
+import fb "fizzbuzz/fizzbuzzer"
 
 func main() {
 	const from = 1
-	const to = 101
+	const to = 1000001
 
 	fbs, err := fb.FizzBuzzRange(from, to)
 	if err != nil {
