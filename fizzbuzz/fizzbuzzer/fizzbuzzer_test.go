@@ -13,6 +13,8 @@ type args struct {
 	to   int
 }
 
+var dummy []FizzBuzz
+
 var tests = []struct {
 	name    string
 	args    args
@@ -49,8 +51,10 @@ func TestFizzBuzzRange(t *testing.T) {
 
 // Just for fun too
 func BenchmarkFizzBuzzRange(b *testing.B) {
+	var r []FizzBuzz
 	tt := tests[len(tests)-1]
 	for i := 0; i < b.N; i++ {
-		FizzBuzzRange(tt.args.from, tt.args.to)
+		r, _ = FizzBuzzRange(tt.args.from, tt.args.to)
 	}
+	dummy = r // prevent inlining
 }
