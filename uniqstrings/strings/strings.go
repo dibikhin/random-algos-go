@@ -17,8 +17,8 @@ func Uniq(a, b []string) []string {
 // private below
 
 func insert(strs []string, set strSet) {
-	for i := range strs {
-		set[strs[i]] = void{}
+	for _, v := range strs {
+		set[v] = void{}
 	}
 }
 
