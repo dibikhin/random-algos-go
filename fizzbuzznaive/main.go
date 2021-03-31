@@ -2,20 +2,22 @@
 
 package main
 
+import "fmt"
+
 func main() {
-	println("Started.")
+	fmt.Println("Started.")
 
 	const N = 100
 	for n := 1; n < N; n++ {
 		if n%3 == 0 && n%5 == 0 {
-			println("FizzBuzz")
+			fmt.Println("FizzBuzz")
 		} else if n%5 == 0 {
-			println("Buzz")
+			fmt.Println("Buzz")
 		} else if n%3 == 0 {
-			println("Fizz")
+			fmt.Println("Fizz")
 		} else {
-			println(n)
+			fmt.Println(n)
 		}
 	}
-	println("Done.")
+	fmt.Println("Done.")
 }

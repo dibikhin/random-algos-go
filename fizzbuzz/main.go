@@ -12,14 +12,14 @@ func main() {
 
 	fbs, err := fb.FizzBuzzRange(from, to)
 	if err != nil {
-		fmt.Println(os.Stderr, err)
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 	for _, v := range fbs {
 		if v.Text != "" {
-			println(v.Text)
+			fmt.Println(v.Text)
 		} else {
-			println(v.Num)
+			fmt.Println(v.Num)
 		}
 	}
 }

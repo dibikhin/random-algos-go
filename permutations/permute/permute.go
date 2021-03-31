@@ -11,7 +11,7 @@ func Permute(ss []string) [][]string {
 	if len(ss) == 3 {
 		a := [][]string{}
 		for i := range ss {
-			print(i)
+			print(i) // TODO remove
 			fmt.Println(a)
 
 			xs := remove(append([]string{}, ss...), i)

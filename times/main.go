@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type fn func()
 
 func (f fn) times(n int) {
@@ -13,7 +15,7 @@ func (f fn) times(n int) {
 func main() {
 	c := 0
 	var f fn = func() {
-		println(c)
+		fmt.Println(c)
 		c++
 	}
 	f.times(5)
