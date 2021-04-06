@@ -1,6 +1,10 @@
 package main
 
-import fb "fizzbuzz/fizzbuzzer"
+import (
+	fb "fizzbuzz/fizzbuzzer"
+	"fmt"
+	"os"
+)
 
 func main() {
 	const from = 1
@@ -8,13 +12,14 @@ func main() {
 
 	fbs, err := fb.FizzBuzzRange(from, to)
 	if err != nil {
-		panic(err)
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
 	for _, v := range fbs {
 		if v.Text != "" {
-			println(v.Text)
+			fmt.Println(v.Text)
 		} else {
-			println(v.Num)
+			fmt.Println(v.Num)
 		}
 	}
 }
